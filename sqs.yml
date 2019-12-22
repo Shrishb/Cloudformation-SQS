@@ -1,0 +1,16 @@
+---
+AWSTemplateFormatVersion: '2019-09-09'
+Description: Sample SQS Template
+Resources:
+  MyQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName:
+        Fn::Join:
+        - ''
+        - - SampleQueue-
+          - Ref: AWS::StackName
+Outputs:
+  MyAWSAccountId:
+    Value:
+      Ref: AWS::AccountId
